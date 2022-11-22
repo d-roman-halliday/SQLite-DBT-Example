@@ -73,3 +73,41 @@ This change is to reflect the name in the above `profiles.yml`
     # This setting configures which "profile" dbt uses for this project.
     profile: 'local_sqlite_project'
 
+## Execution & Testing
+Now it's time to test the Execution
+
+    dbt run
+
+The project should run succesfully, if it doesn't check the output for useful error mesages (dbt is quite good with them).
+Then try:
+
+    dbt build
+
+If you are familiar with the demo/example project there is a bug in one of the models which needs fixing
+
+    vi models/example/my_first_dbt_model.sql
+
+Now it's time to see the database craeted (the local SQLite database)
+
+    sqlite3 ../local_sqlite_project_db.sqlite
+
+### SQLite Commands & output
+Testing the output by querying the database should look like the below:
+
+    SQLite version 3.37.0 2021-12-09 01:34:53
+    Enter ".help" for usage hints.
+    sqlite> .tables
+    my_first_dbt_model   my_second_dbt_model
+    sqlite> .headers on
+    sqlite> SELECT * FROM my_first_dbt_model;
+    id
+    1
+    2
+    sqlite> SELECT * FROM my_second_dbt_model;
+    id
+    1
+    sqlite> .mode line
+    sqlite> SELECT * FROM my_second_dbt_model;
+    id = 1
+    sqlite> 
+
