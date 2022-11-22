@@ -1,7 +1,67 @@
 # SQLite-DBT-Example
-An example project using dbt-SQLite with local configuration.
 
-# Command History
+This is an example project using dbt-SQLite with local configuration. I was inspired by the recent changes to allow for a local configuration file to demonstrate a self contained dbt project for the purpose of worked examples and other teaching/problem solving situations.
+
+This can have someone running a pre built dbt project without installing any extra database software, with everything self contained in a python virtual environment and local directory structurte (checked out from GitHub).
+
+# 'Out of the box' install & Execute
+
+## Get code & creqte venv
+
+    # Create working directory
+    mkdir dbt_demo
+    cd dbt_demo
+
+    # Get code
+    git clone git@github.com:d-roman-halliday/SQLite-DBT-Example.git
+
+    # Create venv
+    python -m venv venv
+
+    # Start venv
+    source venv/bin/activate
+
+    # Install dbt (with SQLite)
+    pip install --upgrade pip
+    pip install dbt-sqlite
+
+## Run project
+
+    cd SQLite-DBT-Example\demo
+
+    dbt run
+
+    dbt build
+
+## View models created
+
+Now it's time to see the database craeted (the local SQLite database).
+
+    sqlite3 ../local_sqlite_project_db.sqlite
+
+### SQLite Commands & output
+Testing the output by querying the database should look like the below:
+
+```
+SQLite version 3.37.0 2021-12-09 01:34:53
+Enter ".help" for usage hints.
+sqlite> .tables
+my_first_dbt_model   my_second_dbt_model
+sqlite> .headers on
+sqlite> SELECT * FROM my_first_dbt_model;
+id
+1
+2
+sqlite> SELECT * FROM my_second_dbt_model;
+id
+1
+sqlite> .mode line
+sqlite> SELECT * FROM my_second_dbt_model;
+id = 1
+sqlite> 
+```
+
+# Installation & Configuration Command History
 
 ## Craete a directory for this self contained project
 
