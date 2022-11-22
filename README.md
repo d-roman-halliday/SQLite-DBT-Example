@@ -29,3 +29,13 @@ For thepurpose of the demonstration we will stick with whatever default pythong 
     pip install --upgrade pip
     # Install 'dbt-sqlite', includes 'dbt-core' and other libraries
     pip install dbt-sqlite
+
+## Create demo project
+This checks the dbt instalation and creates the demo project (built in to the dbt application)
+
+    # Test dbt instalation
+    dbt --version
+
+    # Craete 'demo' project which includes the 'example' models
+    dbt init demo
+
