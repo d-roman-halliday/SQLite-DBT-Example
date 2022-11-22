@@ -39,3 +39,37 @@ This checks the dbt instalation and creates the demo project (built in to the db
     # Craete 'demo' project which includes the 'example' models
     dbt init demo
 
+## configure project & SQLite
+See the dbt docs for [SQLite setup](https://docs.getdbt.com/reference/warehouse-setups/sqlite-setup).
+Since more recent versions of dbt, the `profiles.yml` file doesn't need to be in the `~/.dbt` location, instead it can be local to a project which is handy for this sort of standalone situation.
+
+    # Modify the profiles
+    vi demo/profiles.yml
+
+### profiles.yml
+Note there are changes from the original docs:
+1. The configuration name has been changed to `local_sqlite_project`, this will need to be relected in the `dbt_project.yml`.
+1. The database file location has been given as `../local_sqlite_project_db.sqlite` this places the file outside of the rest of the dbt code but within the project filesystem, it will need to be removed from the code by the `.gitignore` file.
+1. the `extensions` section is commented out (according to the docs this is required for crypto and snapshots). This will be enabled later.
+
+    local_sqlite_project:
+      target: dev
+      outputs:
+        dev:
+          type: sqlite
+          threads: 1
+          database: 'database'
+          schema: 'main'
+          schemas_and_paths:
+            main: '../local_sqlite_project_db.sqlite'
+          schema_directory: 'file_path'
+          #optional fields
+    #     extensions:
+    #       - "/path/to/sqlean/crypto.so"
+
+### dbt_project.yml
+This change is to reflect the name in the above `profiles.yml`
+
+    # This setting configures which "profile" dbt uses for this project.
+    profile: 'local_sqlite_project'
+

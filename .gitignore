@@ -1,2 +1,8 @@
 # log directory
 logs/
+
+# Hidden files
+.*
+
+# sqlite databases
+*.sqlite
