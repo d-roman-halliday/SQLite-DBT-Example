@@ -111,3 +111,9 @@ Testing the output by querying the database should look like the below:
     id = 1
     sqlite> 
 
+# Future Changes & Additions
+
+## SQLite Extensions & sqlean
+The [sqlean](https://github.com/nalgeon/sqlean) project exists to add extensions to SQLite, as commented out in `profiles.yml`. 
+Depending on the operating system, this will need installing.
+If you are working from Mac OS, this is going to be hard work.
