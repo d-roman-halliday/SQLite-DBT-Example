@@ -15,4 +15,17 @@ For the purpose of working with setting up this example project/repository it ne
     # Edit this file
     vi README.md
 
+## Craete & Configure python venv (Virtual Environment)
+This ensures that all we do is self contained from a software installation and management perspective.
+For thepurpose of the demonstration we will stick with whatever default pythong version is on the systemat hand.
 
+    # From the 'demo_dbt_sqlite' directory (so the venv is independent of the codebase)
+    python -m venv venv
+
+    # Start the virtual environment
+    source venv/bin/activate
+
+    # Upgrade pip
+    pip install --upgrade pip
+    # Install 'dbt-sqlite', includes 'dbt-core' and other libraries
+    pip install dbt-sqlite
