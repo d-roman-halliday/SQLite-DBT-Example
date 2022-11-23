@@ -58,7 +58,8 @@ You will need to have:
 
 I've only tested it on Mac and Linux (ubuntu). 
 
-As a proof of concept, a script can be called to configure everything ready for a `dbt run`.
+As a proof of concept, a script can be called to configure everything ready for a `dbt run`. The script in this repository is:
+[git_demo_install.bash](install/git_demo_install.bash)
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/d-roman-halliday/SQLite-DBT-Example/main/install/git_demo_install.bash)"
