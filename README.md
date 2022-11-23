@@ -49,6 +49,27 @@ You will need to have:
 1. Start the virtual environment, and install `dbt-sqlite`
 1. Run the project
 
+## Setup Script
+**Use this at your own peril!**
+I've only tested it on Mac and Linux (ubuntu). 
+
+As a proof of concept, a script can be called to configure everything ready for a `dbt run`.
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/d-roman-halliday/SQLite-DBT-Example/main/install/git_demo_install.bash)"
+```
+
+So all you need to do is
+```
+source venv/bin/activate
+
+cd SQLite-DBT-Example
+cd demo
+
+dbt run
+```
+
+
 ## 'Step by step' Checkout & Execution
 These commands have been run/tested using Linux, Mac OS and Windows (both git bash and `cmd`). I've put comments for the variations.
 
