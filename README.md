@@ -3,6 +3,8 @@
 This is an example [dbt](https://www.getdbt.com/) project, for [dbt-core](https://docs.getdbt.com/docs/get-started/getting-started-dbt-core) (refeerd to as the CLI/Community/Open Source edition)
 of `dbt` (which can be used in any environment).
 
+**Note** If you are new to dbt, this isn't a place to start. Go and read there great documentation (for this CLI, you want dbt core): https://docs.getdbt.com/docs/get-started/getting-started/overview
+
 My intention is for this example (and anything built like it/extending on it) to be self-contained, so it can be replaced and deleted with minimal impact on the computer it's being run on.
 I hope that it paves the way for self-contained demo projects, useful for tutorials and sharing solutions within the community.
 
@@ -51,6 +53,9 @@ You will need to have:
 
 ## Setup Script
 **Use this at your own peril!**
+
+**You should start with the section: 'Step by step' Checkout & Execution**
+
 I've only tested it on Mac and Linux (ubuntu). 
 
 As a proof of concept, a script can be called to configure everything ready for a `dbt run`.
